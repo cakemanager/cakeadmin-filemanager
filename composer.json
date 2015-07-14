@@ -1,0 +1,25 @@
+{
+  "name": "cakemanager/cakeadmin-filemanager",
+  "description": "FileManager plugin for CakeAdmin and CakePHP 3.x",
+  "type": "cakephp-plugin",
+  "require": {
+    "php": ">=5.4.16",
+    "cakephp/cakephp": "~3.0",
+    "cakemanager/cakephp-cakeadmin": "dev-master"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "FileManager\\": "src"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "FileManager\\Test\\": "tests",
+      "Cake\\Test\\": "./vendor/cakephp/cakephp/tests"
+    }
+  },
+  "minimum-stability": "dev"
+}
