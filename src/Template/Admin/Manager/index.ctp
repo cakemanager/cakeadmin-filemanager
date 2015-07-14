@@ -38,6 +38,9 @@
                         <td><?= $this->Html->link($item['name'], $this->FileManager->url($item, $path)) ?></td>
                         <td><?= $this->Number->toReadableSize($item['size']) ?></td>
                         <td>
+                            <?php if ($item['type'] !== 'folder'): ?>
+                                <a id="copy" data-clipboard-text="<?= $item['reference']?>">Copy URL</a> |
+                            <?php endif; ?>
                             <?= $this->Form->postLink(
                                 'Delete',
                                 ['action' => 'delete', $path, $item['name']],
@@ -63,4 +66,11 @@
         </div>
     </div>
 
+    <script src="//cdnjs.cloudflare.com/ajax/libs/zeroclipboard/2.2.0/ZeroClipboard.min.js"></script>
+    <script>
+        // main.js
+        var client = new ZeroClipboard(document.getElementById("copy"), {
+            swfPath: "//cdnjs.cloudflare.com/ajax/libs/zeroclipboard/2.2.0/ZeroClipboard.swf"
+        });
+    </script>
 <?php
