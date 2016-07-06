@@ -1,9 +1,7 @@
 <?php
 namespace FileManager\View\Helper;
 
-use Cake\Routing\Router;
 use Cake\View\Helper;
-use Cake\View\View;
 
 /**
  * FileManager helper
@@ -26,25 +24,25 @@ class FileManagerHelper extends Helper
     public function url($item, $path)
     {
         if ($item['type'] === 'folder') {
-            $url = Router::url([
+            $url = [
                 'prefix' => 'admin',
                 'plugin' => 'FileManager',
                 'controller' => 'Manager',
                 'action' => 'index',
                 $path,
                 $item['name'],
-            ]);
+            ];
         }
 
         if ($item['type'] === 'file') {
-            $url = Router::url([
+            $url = [
                 'prefix' => 'admin',
                 'plugin' => 'FileManager',
                 'controller' => 'Manager',
                 'action' => 'view',
                 $path,
                 $item['name'],
-            ]);
+            ];
         }
 
         return $url;
